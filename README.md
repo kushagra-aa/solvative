@@ -1,10 +1,13 @@
 # Solvative
 
-> [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities)
+[GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities)
+[Flags API](https://flagsapi.com/)
+
+> Using Flags API as the mentioned `https://www.countryflagsapi.com/` is not working.
 
 ## Technologies Used
 
-- **Frontend:** ReactJS, TypeScript
+- **Frontend:** ReactJS, TypeScript.
 
 ## Run Locally
 
