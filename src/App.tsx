@@ -65,7 +65,7 @@ function App() {
   }, [pageConfig]);
 
   return (
-    <>
+    <main>
       <Loader isLoading={isLoading} />
       <SearchBox onSearch={handleSearchChange} />
       {cities && cities.length > 0 ? (
@@ -83,7 +83,7 @@ function App() {
       ) : (
         <NoDataFound />
       )}
-    </>
+    </main>
   );
 }
 

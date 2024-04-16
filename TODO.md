@@ -11,7 +11,7 @@
   - [X] Pagination
   - [X] NoDataFound
 - [] Styling
-  - [] Base Page
+  - [X] Base Page
   - [] SearchBox
   - [] Table
   - [] Pagination
