@@ -38,6 +38,7 @@ function App() {
     limit?: number | undefined;
     offset?: number | undefined;
   }) => {
+    if (isLoading) return;
     refreshCities({ namePrefix, limit, offset });
   };
 

@@ -5,7 +5,13 @@
 - [x] Setup
   - [x] Axios
   - [x] API
-- [] Components
+- [X] Components
+  - [X] SearchBox
+  - [X] Table
+  - [X] Pagination
+  - [X] NoDataFound
+- [] Styling
+  - [] Base Page
   - [] SearchBox
   - [] Table
   - [] Pagination
