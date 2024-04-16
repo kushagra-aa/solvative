@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import useDebounce from "./../../hooks/useDebounce"; // Replace with your useDebounce hook path
+import "./index.css";
 
 interface SearchBoxProps {
   onSearch: (searchTerm: string) => void; // External search function
