@@ -1,3 +1,5 @@
+import "./index.css";
+
 function NoDataFound() {
   return (
     <div className="no-data-container">
