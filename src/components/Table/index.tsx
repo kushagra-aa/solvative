@@ -30,7 +30,14 @@ function Table({ headers, data, actions }: TablePropsType) {
           {data.map(({ raw, row }, rowIndex) => (
             <tr key={rowIndex}>
               {row?.map((cell, cellIndex) => (
-                <td key={cellIndex}>
+                <td
+                  key={cellIndex}
+                  className={`${
+                    headers[cellIndex].name === "#"
+                      ? "index"
+                      : headers[cellIndex].type
+                  }-cell`}
+                >
                   {headers[cellIndex].type === "text" ? (
                     `${cell}`
                   ) : headers[cellIndex].type === "link" ? (

@@ -13,7 +13,7 @@
 - [] Styling
   - [X] Base Page
   - [] SearchBox
-  - [] Table
+  - [X] Table
   - [] Pagination
   - [] NoDataFound
 - [X] Logic

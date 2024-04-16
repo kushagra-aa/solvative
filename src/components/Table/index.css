@@ -2,26 +2,39 @@
   height: inherit;
   overflow: scroll;
 
-  border-color: var(--color-dark-40);
-
+  border: 1px solid #0000002a;
+  
   table {
-    border-width: 0;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
 
     & > thead {
       & > tr {
         & > th {
-          min-width: 10rem;
           position: sticky;
           top: 0;
+          padding: 8px;
+          font-weight: 700;
+          border-bottom: 1px solid rgb(32, 32, 32);
         }
       }
     }
     & > tbody {
       & > tr {
         transition: all 0.5s ease-in-out;
-
+        
         &:hover {
-          background: var(--color-dark-40);
+          background: #00000010;
+        }
+        
+        &>td{
+          text-align: center;
+          padding: 8px;
+          border-bottom: 1px solid rgba(222, 226, 230,.8);
+          &.index-cell{
+            font-weight: 700;
+          }
         }
       }
     }
