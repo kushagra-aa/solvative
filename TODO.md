@@ -14,7 +14,7 @@
   - [X] Base Page
   - [] SearchBox
   - [X] Table
-  - [] Pagination
+  - [X] Pagination
   - [] NoDataFound
 - [X] Logic
   - [x] API

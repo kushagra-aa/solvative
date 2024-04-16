@@ -4,7 +4,7 @@ import {
   ChevronRightIcon,
   DoubleChevronLeftIcon,
   DoubleChevronRightIcon,
-} from "./../Icons"; // Replace with your icon components
+} from "./../Icons";
 import "./index.css";
 
 interface PaginationProps {
@@ -14,7 +14,6 @@ interface PaginationProps {
   pageSizeOptions: number[]; // Array of available page sizes
   onPageSizeChange: (size: number) => void; // Function to handle page size change
   onPageChange: (page: number) => void; // Function to handle page change
-  onNoResultsFound?: () => void; // Optional function called if no results found
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -24,7 +23,6 @@ const Pagination: React.FC<PaginationProps> = ({
   pageSizeOptions,
   onPageSizeChange,
   onPageChange,
-  onNoResultsFound,
 }) => {
   const [totalPages, setTotalPages] = useState(0);
 
@@ -33,7 +31,7 @@ const Pagination: React.FC<PaginationProps> = ({
     setTotalPages(newTotalPages);
 
     if (currentPage > newTotalPages && newTotalPages > 0) {
-      onPageChange(newTotalPages); // Go to last page if current page exceeds total pages
+      onPageChange(newTotalPages);
     }
   }, [totalItems, currentPage, pageSize, onPageChange]);
 
@@ -86,11 +84,6 @@ const Pagination: React.FC<PaginationProps> = ({
       </button>
     ));
   };
-
-  if (totalItems === 0 && onNoResultsFound) {
-    onNoResultsFound();
-    return null; // Hide pagination if no results found (optional)
-  }
 
   return (
     <div className="pagination">
