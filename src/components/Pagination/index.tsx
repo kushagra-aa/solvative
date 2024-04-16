@@ -121,7 +121,11 @@ const Pagination: React.FC<PaginationProps> = ({
       <div className="pagination-size">
         <select value={pageSize} onChange={handlePageSizeChange}>
           {pageSizeOptions.map((option) => (
-            <option key={option} value={option.toString()}>
+            <option
+              key={option}
+              value={option.toString()}
+              selected={option === pageSize}
+            >
               {option} items/page
             </option>
           ))}

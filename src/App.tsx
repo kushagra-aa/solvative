@@ -13,7 +13,7 @@ function App() {
     {}
   );
   const [pageConfig, setPageConfig] = useState({ page: 1, size: 5 });
-  const pageSizeOptions = [5, 10, 25];
+  const pageSizeOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const handlePageSizeChange = (newSize: number) => {
     setPageConfig((c) => ({ ...c, size: newSize, page: 1 }));
