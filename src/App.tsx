@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Loader from "./components/Loader";
+import NoDataFound from "./components/NoDataFound";
 import Pagination from "./components/Pagination";
 import SearchBox from "./components/SearchBox";
 import Table from "./components/Table";
@@ -66,15 +67,21 @@ function App() {
     <>
       <Loader isLoading={isLoading} />
       <SearchBox onSearch={handleSearchChange} />
-      <Table actions={actions} data={data} headers={headers} />
-      <Pagination
-        totalItems={totalCities}
-        currentPage={pageConfig.page}
-        pageSize={pageConfig.size}
-        pageSizeOptions={pageSizeOptions}
-        onPageSizeChange={handlePageSizeChange}
-        onPageChange={handlePageChange}
-      />
+      {cities && cities.length > 0 ? (
+        <div className="table-pagination-container">
+          <Table actions={actions} data={data} headers={headers} />
+          <Pagination
+            totalItems={totalCities}
+            currentPage={pageConfig.page}
+            pageSize={pageConfig.size}
+            pageSizeOptions={pageSizeOptions}
+            onPageSizeChange={handlePageSizeChange}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      ) : (
+        <NoDataFound />
+      )}
     </>
   );
 }
