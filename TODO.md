@@ -9,9 +9,9 @@
   - [] SearchBox
   - [] Table
   - [] Pagination
-  - [] Button
-- [] Logic
+  - [] NoDataFound
+- [X] Logic
   - [x] API
-  - [] Pagination
-  - [] Data Sanitization
-  - [] Debounce
+  - [X] Pagination
+  - [X] Data Sanitization
+  - [X] Debounce
