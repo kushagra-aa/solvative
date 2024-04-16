@@ -2,16 +2,16 @@
 
 ## FrontEnd
 
-- [] Setup
-  - [] Axios
-  - [] API
+- [x] Setup
+  - [x] Axios
+  - [x] API
 - [] Components
-  - [] Table
   - [] SearchBox
+  - [] Table
   - [] Pagination
   - [] Button
 - [] Logic
-  - [] API
+  - [x] API
   - [] Pagination
   - [] Data Sanitization
   - [] Debounce
