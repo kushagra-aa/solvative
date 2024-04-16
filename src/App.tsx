@@ -13,6 +13,7 @@ function App() {
     {}
   );
   const [pageConfig, setPageConfig] = useState({ page: 1, size: 5 });
+  const [searchTerm, setSearchTerm] = useState("");
   const pageSizeOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const handlePageSizeChange = (newSize: number) => {
@@ -21,6 +22,10 @@ function App() {
 
   const handlePageChange = (newPage: number) => {
     setPageConfig((c) => ({ ...c, page: newPage }));
+  };
+  const handleSearchChange = (s: string) => {
+    setPageConfig((c) => ({ ...c, page: 1 }));
+    setSearchTerm(s);
   };
 
   const getCitiesHandler = async ({
@@ -53,18 +58,14 @@ function App() {
 
   useEffect(() => {
     const { limit, offset } = getLimitOffset(pageConfig);
-    getCitiesHandler({ limit, offset });
+    getCitiesHandler({ limit, offset, namePrefix: searchTerm });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageConfig]);
 
   return (
     <>
       <Loader isLoading={isLoading} />
-      <SearchBox
-        onSearch={(s) => {
-          console.log("s", s);
-        }}
-      />
+      <SearchBox onSearch={handleSearchChange} />
       <Table actions={actions} data={data} headers={headers} />
       <Pagination
         totalItems={totalCities}
