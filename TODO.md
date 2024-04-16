@@ -10,7 +10,7 @@
   - [X] Table
   - [X] Pagination
   - [X] NoDataFound
-- [] Styling
+- [X] Styling
   - [X] Base Page
   - [X] SearchBox
   - [X] Table

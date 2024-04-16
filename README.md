@@ -42,6 +42,10 @@ The max `pageSize` is capped to `10` due to restrictions from the [API][API]
 
 Shows a `NoDataFound` element if the data in table is empty.
 
+### Responsive
+
+All views are fully responsive up to `300px` width.
+
 ## Run Locally
 
 1. Clone the repository:
@@ -56,13 +60,15 @@ Shows a `NoDataFound` element if the data in table is empty.
    cd solvative
    ```
 
-3. Make a `.env` file and paste the following values:
+3. Make a `.env` file and paste the values:
 
    ```properties
    VITE_BASE_URL = 
    VITE_RAPID_API_KEY = 
    VITE_RAPID_API_HOST = 
    ```
+
+   > You need to have the following environment variables, if you don't have them you get then from [HERE(RapidAPI)][API]
 
 4. Install dependencies
 
