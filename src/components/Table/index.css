@@ -1,0 +1,29 @@
+.table_container {
+  height: inherit;
+  overflow: scroll;
+
+  border-color: var(--color-dark-40);
+
+  table {
+    border-width: 0;
+
+    & > thead {
+      & > tr {
+        & > th {
+          min-width: 10rem;
+          position: sticky;
+          top: 0;
+        }
+      }
+    }
+    & > tbody {
+      & > tr {
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          background: var(--color-dark-40);
+        }
+      }
+    }
+  }
+}
