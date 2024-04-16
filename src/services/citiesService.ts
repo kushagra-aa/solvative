@@ -5,12 +5,17 @@ import { HttpMethods } from "../lib/API";
 import CityModel from "../models/CityModel";
 
 type UseCitiesProps = {
-  method?: "get";
+  method?: "get" | "";
+};
+type CityResponseType = {
+  data: CityModel[];
+  metadata: { totalCount: number };
 };
 
-const UseCitiesService = ({ method = "get" }: UseCitiesProps) => {
-  const { error, getData, isLoading } = useAPI<CityModel[]>({});
+const UseCitiesService = ({ method = "" }: UseCitiesProps) => {
+  const { error, getData, isLoading } = useAPI<CityResponseType>({});
   const [cities, setCities] = useState<CityModel[]>([]);
+  const [totalCities, setTotalCities] = useState(100);
   //   const user = useUserStore();
   const CITIES_GET_ENDPOINT = "";
 
@@ -27,8 +32,11 @@ const UseCitiesService = ({ method = "get" }: UseCitiesProps) => {
       headers: {},
       params,
     });
-    if (resp) setCities(resp.data.data);
-    else if (error) toast.error(`Error: ${error}`);
+    if (resp) {
+      const fixedResp = resp.data as unknown as CityResponseType;
+      setCities(fixedResp.data);
+      setTotalCities(fixedResp.metadata.totalCount);
+    } else if (error) toast.error(`Error: ${error}`);
   };
   const refreshCities = ({ namePrefix = "", limit = 5, offset = 0 }) => {
     getCities(namePrefix, limit, offset);
@@ -44,6 +52,7 @@ const UseCitiesService = ({ method = "get" }: UseCitiesProps) => {
     error,
     isLoading,
     refreshCities,
+    totalCities,
   };
 };
 
