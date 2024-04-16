@@ -25,18 +25,22 @@ const UseCitiesService = ({ method = "" }: UseCitiesProps) => {
     offset: number
   ) => {
     const params = { namePrefix, limit, offset };
-    const resp = await getData({
-      method: HttpMethods.GET,
-      endpoint: CITIES_GET_ENDPOINT,
-      body: {},
-      headers: {},
-      params,
-    });
-    if (resp) {
-      const fixedResp = resp.data as unknown as CityResponseType;
-      setCities(fixedResp.data);
-      setTotalCities(fixedResp.metadata.totalCount);
-    } else if (error) toast.error(`Error: ${error}`);
+    try {
+      const resp = await getData({
+        method: HttpMethods.GET,
+        endpoint: CITIES_GET_ENDPOINT,
+        body: {},
+        headers: {},
+        params,
+      });
+      if (resp) {
+        const fixedResp = resp.data as unknown as CityResponseType;
+        setCities(fixedResp.data);
+        setTotalCities(fixedResp.metadata.totalCount);
+      } else if (error) throw new Error(error.message);
+    } catch (err) {
+      toast.error(`Error: ${err}`);
+    }
   };
   const refreshCities = ({ namePrefix = "", limit = 5, offset = 0 }) => {
     getCities(namePrefix, limit, offset);

@@ -24,6 +24,7 @@ function Table({ headers, data, actions }: TablePropsType) {
             {headers.map((header, index) => (
               <th key={index}>{header.name}</th>
             ))}
+            {actions.length > 0 && <th>Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -47,18 +48,20 @@ function Table({ headers, data, actions }: TablePropsType) {
                   ) : null}
                 </td>
               ))}
-              <span className="actions">
-                {actions.map((action) => (
-                  <button
-                    className={action.className}
-                    title={action.name}
-                    onClick={() => action.onClick(raw)}
-                  >
-                    {action.name}
-                    {action.icon}
-                  </button>
-                ))}
-              </span>
+              {actions.length > 0 && (
+                <td className="actions">
+                  {actions.map((action) => (
+                    <button
+                      className={action.className}
+                      title={action.name}
+                      onClick={() => action.onClick(raw)}
+                    >
+                      {action.name}
+                      {action.icon}
+                    </button>
+                  ))}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
